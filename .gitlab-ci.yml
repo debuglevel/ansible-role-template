@@ -31,7 +31,7 @@ molecule:
   parallel:
     matrix:
       - MOLECULE_DISTRO:
-          - ubuntu1604
+          - ubuntu2004
           - ubuntu2204
         PYTHON_VERSION:
           - "3.10"
