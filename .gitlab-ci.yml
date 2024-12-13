@@ -30,7 +30,8 @@ molecule:
   #     - MOLECULE_DISTRO: ubuntu1604
   #     - MOLECULE_DISTRO: ubuntu2204
   script:
-    - apt-get update && apt-get install -y docker.io
+    - apt-get update
+    - apt-get install -y docker.io
     - docker run -ti hello-world
     - docker version
     - apt-get update && apt-get install -y python3-pip
