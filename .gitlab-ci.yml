@@ -21,7 +21,7 @@ molecule:
   services:
     - docker:dind
   variables:
-    DOCKER_DRIVER: overlay2
+    #DOCKER_DRIVER: overlay2
     PY_COLORS: '1'
     ANSIBLE_FORCE_COLOR: '1'
   parallel:
@@ -29,6 +29,7 @@ molecule:
       - MOLECULE_DISTRO: ubuntu1604
       - MOLECULE_DISTRO: ubuntu2204
   script:
+    - docker version
     - apt-get update && apt-get install -y python3-pip
     - pip3 install ansible molecule molecule-plugins[docker] docker pytest pytest-testinfra
     - molecule test --all
