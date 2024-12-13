@@ -5,7 +5,12 @@ stages:
 
 lint:
   stage: lint
-  image: python:3.10
+  parallel:
+    matrix:
+      - PYTHON_VERSION: 3.10
+      - PYTHON_VERSION: 3.11
+      - PYTHON_VERSION: 3.12
+  image: python:$PYTHON_VERSION
   script:
     - pip3 install yamllint
     - yamllint .
