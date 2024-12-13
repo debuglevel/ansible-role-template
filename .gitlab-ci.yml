@@ -34,6 +34,10 @@ molecule:
       - MOLECULE_DISTRO:
           - ubuntu1604
           - ubuntu2204
+        PYTHON_VERSION:
+          - "3.10"
+          - "3.11"
+          - "3.12"
   script:
     - apt-get update
     - apt-get install -y docker.io
