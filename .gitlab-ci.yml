@@ -33,6 +33,7 @@ molecule:
       - MOLECULE_DISTRO:
           - ubuntu2004
           - ubuntu2204
+          - ubuntu2404
         PYTHON_VERSION:
           - "3.10"
           - "3.11"
