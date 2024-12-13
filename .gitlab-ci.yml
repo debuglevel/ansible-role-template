@@ -26,7 +26,7 @@ molecule:
     ANSIBLE_FORCE_COLOR: '1'
     MOLECULE_DISTRO: ubuntu2204
     DOCKER_HOST: "tcp://docker:2375"
-    #DOCKER_DRIVER: overlay2
+    DOCKER_DRIVER: overlay2
   # parallel:
   #   matrix:
   #     - MOLECULE_DISTRO: ubuntu1604
@@ -34,8 +34,8 @@ molecule:
   script:
     - apt-get update
     - apt-get install -y docker.io
-    - docker run hello-world
     - docker version
+    - docker run hello-world
     - apt-get update && apt-get install -y python3-pip
     - pip3 install ansible molecule molecule-plugins[docker] docker pytest pytest-testinfra
     - molecule test --all
