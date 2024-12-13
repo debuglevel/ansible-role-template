@@ -32,7 +32,7 @@ molecule:
   script:
     - apt-get update
     - apt-get install -y docker.io
-    - docker run -ti hello-world
+    - docker run hello-world
     - docker version
     - apt-get update && apt-get install -y python3-pip
     - pip3 install ansible molecule molecule-plugins[docker] docker pytest pytest-testinfra
