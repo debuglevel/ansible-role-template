@@ -9,7 +9,7 @@ name: CI
 jobs:
   lint:
     name: Lint
-    runs-on: ubuntu-latest
+    runs-on: ubuntu:22.04
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
@@ -28,12 +28,12 @@ jobs:
 
   molecule:
     name: Molecule
-    runs-on: ubuntu-latest
+    runs-on: ubuntu:22.04
     strategy:
       matrix:
         include:
-          - distro: ubuntu1604
-          - distro: ubuntu2204
+          - distro: ubuntu1604  # TODO: Not sure this makes sense. If it does, document why.
+          - distro: ubuntu2204  # TODO: Not sure this makes sense. If it does, document why.
 
     steps:
       - name: Check out the codebase.
