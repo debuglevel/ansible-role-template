@@ -9,26 +9,25 @@ variables:
 
 
 stages:
-  # - lint
+  - lint
   - test
 
-# lint:
-#   stage: lint
-#   parallel:
-#     matrix:
-#       - PYTHON_VERSION: "3.10"
-#       - PYTHON_VERSION: "3.11"
-#       - PYTHON_VERSION: "3.12"
-#   image: python:$PYTHON_VERSION
-#   script:
-#     - pip3 install yamllint
-#     - yamllint .
+lint:
+  stage: lint
+  parallel:
+    matrix:
+      - PYTHON_VERSION: "3.10"
+      - PYTHON_VERSION: "3.11"
+      - PYTHON_VERSION: "3.12"
+  image: python:$PYTHON_VERSION
+  script:
+    - pip3 install yamllint
+    - yamllint .
 
 molecule:
   stage: test
   image: python:3.10
   variables:
-    #DOCKER_DRIVER: overlay2
     PY_COLORS: '1'
     ANSIBLE_FORCE_COLOR: '1'
     MOLECULE_DISTRO: ubuntu2204
