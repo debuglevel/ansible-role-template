@@ -7,7 +7,6 @@ variables:
   DOCKER_TLS_CERTDIR: ""
   DOCKER_HOST: "tcp://docker:2375"
 
-
 stages:
   - lint
   - test
@@ -30,11 +29,10 @@ molecule:
   variables:
     PY_COLORS: '1'
     ANSIBLE_FORCE_COLOR: '1'
-    MOLECULE_DISTRO: ubuntu2204
-  # parallel:
-  #   matrix:
-  #     - MOLECULE_DISTRO: ubuntu1604
-  #     - MOLECULE_DISTRO: ubuntu2204
+  parallel:
+    matrix:
+      - MOLECULE_DISTRO: ubuntu1604
+      - MOLECULE_DISTRO: ubuntu2204
   script:
     - apt-get update
     - apt-get install -y docker.io
