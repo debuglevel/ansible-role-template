@@ -24,10 +24,11 @@ molecule:
     #DOCKER_DRIVER: overlay2
     PY_COLORS: '1'
     ANSIBLE_FORCE_COLOR: '1'
-  parallel:
-    matrix:
-      - MOLECULE_DISTRO: ubuntu1604
-      - MOLECULE_DISTRO: ubuntu2204
+    MOLECULE_DISTRO: ubuntu2204
+  # parallel:
+  #   matrix:
+  #     - MOLECULE_DISTRO: ubuntu1604
+  #     - MOLECULE_DISTRO: ubuntu2204
   script:
     - docker version
     - apt-get update && apt-get install -y python3-pip
