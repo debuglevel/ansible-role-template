@@ -31,8 +31,9 @@ molecule:
     ANSIBLE_FORCE_COLOR: '1'
   parallel:
     matrix:
-      - MOLECULE_DISTRO: ubuntu1604
-      - MOLECULE_DISTRO: ubuntu2204
+      - MOLECULE_DISTRO:
+        - ubuntu1604
+        - ubuntu2204
   script:
     - apt-get update
     - apt-get install -y docker.io
