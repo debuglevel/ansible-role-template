@@ -19,6 +19,7 @@ lint:
         - "3.10"
         - "3.11"
         - "3.12"
+        - "3.13"
   image: python:$PYTHON_VERSION
   script:
     - pip3 install yamllint
@@ -36,6 +37,7 @@ molecule:
           - "3.10"
           - "3.11"
           - "3.12"
+          - "3.13"
   image: python:$PYTHON_VERSION
   variables:
     PY_COLORS: '1'
