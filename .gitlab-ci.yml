@@ -41,9 +41,7 @@ molecule:
           - "3.12"
   script:
     - apt-get update
-    - apt-get install -y docker.io
+    - apt-get install -y docker.io python3-pip
     - docker version
-    - docker run hello-world
-    - apt-get update && apt-get install -y python3-pip
     - pip3 install ansible molecule molecule-plugins[docker] docker pytest pytest-testinfra
     - molecule test --all
