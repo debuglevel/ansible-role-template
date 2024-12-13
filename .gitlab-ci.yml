@@ -1,0 +1,28 @@
+stages:
+  - lint
+  - test
+
+lint:
+  stage: lint
+  image: python:3.10
+  script:
+    - pip3 install yamllint
+    - yamllint .
+
+molecule:
+  stage: test
+  image: python:3.10
+  services:
+    - docker:dind
+  variables:
+    DOCKER_DRIVER: overlay2
+    PY_COLORS: '1'
+    ANSIBLE_FORCE_COLOR: '1'
+  parallel:
+    matrix:
+      - MOLECULE_DISTRO: ubuntu1604
+      - MOLECULE_DISTRO: ubuntu2204
+  script:
+    - apt-get update && apt-get install -y python3-pip
+    - pip3 install ansible molecule molecule-plugins[docker] docker pytest pytest-testinfra
+    - molecule test --all
