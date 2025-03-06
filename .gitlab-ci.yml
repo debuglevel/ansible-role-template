@@ -14,6 +14,7 @@ stages:
 
 lint YAML:
   stage: lint
+  needs: []
   parallel:
     matrix:
       - PYTHON_VERSION:
@@ -34,6 +35,7 @@ lint YAML:
 
 lint Ansible:
   stage: lint
+  needs: []
   parallel:
     matrix:
       - PYTHON_VERSION:
@@ -54,6 +56,7 @@ lint Ansible:
 
 molecule:
   stage: test
+  needs: []
   parallel:
     matrix:
       - MOLECULE_DISTRO:
