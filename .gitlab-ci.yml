@@ -19,9 +19,9 @@ lint YAML:
     matrix:
       - PYTHON_VERSION:
         - "3.10"  # Ubuntu 22.04 ships with this.
-        - "3.11"
+        # - "3.11"
         - "3.12"  # Ubuntu 24.04 ships with this.
-        - "3.13"
+        # - "3.13"
   image: python:$PYTHON_VERSION
   script:
     - echo "Installing dependencies..."
@@ -40,9 +40,9 @@ lint Ansible:
     matrix:
       - PYTHON_VERSION:
         - "3.10"  # Ubuntu 22.04 ships with this.
-        - "3.11"
+        # - "3.11"
         - "3.12"  # Ubuntu 24.04 ships with this.
-        - "3.13"
+        # - "3.13"
   image: python:$PYTHON_VERSION
   script:
     - echo "Installing dependencies..."
@@ -64,9 +64,9 @@ molecule:
           - ubuntu2404
         PYTHON_VERSION:
           - "3.10"  # Ubuntu 22.04 ships with this.
-          - "3.11"
+          # - "3.11"
           - "3.12"  # Ubuntu 24.04 ships with this.
-          - "3.13"
+          # - "3.13"
   image: python:$PYTHON_VERSION
   variables:
     PY_COLORS: '1'
