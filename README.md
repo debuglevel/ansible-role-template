@@ -22,6 +22,17 @@
       roles:
          - { role: username.rolename, x: 42 } -->
 
+```yaml
+- name: Ensure SOMETHING
+  hosts: root_server
+  become: true
+  roles:
+    - debuglevel.template
+  # tags:
+  #   - base
+  #   - base:users
+```
+
 ## Usage
 
 Add this in your `requirements.yaml`:
