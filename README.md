@@ -24,6 +24,8 @@
 
 ## Usage
 
+Add this in your `requirements.yaml`:
+
 ```
 roles:
   - name: debuglevel.template
