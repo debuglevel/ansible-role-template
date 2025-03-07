@@ -31,6 +31,11 @@ roles:
   - name: debuglevel.template
     src: https://github.com/debuglevel/ansible-role-template
     version: <commit hash>
+
+  - name: debuglevel.template
+    src: git@gitlab.mycorp.internal:ansible/roles/ansible-role-template.git
+    scm: git
+    version: <commit hash>
 ```
 
 ## Linting and Testing
