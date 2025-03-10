@@ -46,7 +46,7 @@ lint Ansible:
   image: python:$PYTHON_VERSION
   script:
     - echo "Installing dependencies..."
-    - pip3 install ansible-lint
+    - pip3 install --requirement requirements.txt
     - echo "Installed dependencies."
 
     - echo "Linting Ansible..."
