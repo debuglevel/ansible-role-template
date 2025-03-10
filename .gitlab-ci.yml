@@ -50,7 +50,7 @@ lint Ansible:
     - echo "Installed dependencies."
 
     - echo "Linting Ansible..."
-    - ansible-lint
+    - ansible-lint .
     - echo "Linted Ansible."
   allow_failure: true
 
