@@ -18,10 +18,11 @@ lint YAML:
   parallel:
     matrix:
       - PYTHON_VERSION:
-        - "3.10"  # Ubuntu 22.04 ships with this.
-        # - "3.11"
-        - "3.12"  # Ubuntu 24.04 ships with this.
-        # - "3.13"
+          - "3.10" # Ubuntu 22.04 ships with this.
+          # - "3.11"
+          - "3.12" # Ubuntu 24.04 ships with this.
+          # - "3.13"
+          - "3.14" # Ubuntu 26.04 ships with this.
   image: python:$PYTHON_VERSION
   script:
     - echo "Installing dependencies..."
@@ -39,10 +40,11 @@ lint Ansible:
   parallel:
     matrix:
       - PYTHON_VERSION:
-        - "3.10"  # Ubuntu 22.04 ships with this.
-        # - "3.11"
-        - "3.12"  # Ubuntu 24.04 ships with this.
-        # - "3.13"
+          - "3.10" # Ubuntu 22.04 ships with this.
+          # - "3.11"
+          - "3.12" # Ubuntu 24.04 ships with this.
+          # - "3.13"
+          - "3.14" # Ubuntu 26.04 ships with this.
   image: python:$PYTHON_VERSION
   script:
     - echo "Installing dependencies..."
@@ -62,15 +64,17 @@ molecule:
       - MOLECULE_DISTRO:
           - ubuntu2204
           - ubuntu2404
+          - ubuntu2604
         PYTHON_VERSION:
-          - "3.10"  # Ubuntu 22.04 ships with this.
+          - "3.10" # Ubuntu 22.04 ships with this.
           # - "3.11"
-          - "3.12"  # Ubuntu 24.04 ships with this.
+          - "3.12" # Ubuntu 24.04 ships with this.
           # - "3.13"
+          - "3.14" # Ubuntu 26.04 ships with this.
   image: python:$PYTHON_VERSION
   variables:
-    PY_COLORS: '1'
-    ANSIBLE_FORCE_COLOR: '1'
+    PY_COLORS: "1"
+    ANSIBLE_FORCE_COLOR: "1"
   script:
     - echo "Installing dependencies..."
     - apt-get update
@@ -78,7 +82,7 @@ molecule:
     - docker version
     - pip3 install --requirement requirements.txt
     - echo "Installed dependencies."
-    
+
     - echo "Testing with Molecule..."
     - molecule test --all
     - echo "Tested with Molecule."

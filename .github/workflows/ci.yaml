@@ -1,7 +1,7 @@
 ---
 name: CI
 
-'on':
+"on":
   push:
     branches:
       - main
@@ -9,7 +9,7 @@ name: CI
 jobs:
   lint:
     name: Lint
-    runs-on: ubuntu:22.04
+    runs-on: ubuntu:24.04
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
@@ -17,7 +17,7 @@ jobs:
       - name: Set up Python 3.
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
       - name: Install test dependencies.
         run: pip3 install yamllint
@@ -28,12 +28,15 @@ jobs:
 
   molecule:
     name: Molecule
-    runs-on: ubuntu:22.04
+    runs-on: ubuntu:24.04
     strategy:
       matrix:
         include:
-          - distro: ubuntu1604  # TODO: Not sure this makes sense. If it does, document why.
-          - distro: ubuntu2204  # TODO: Not sure this makes sense. If it does, document why.
+          # The distributions that `molecule` will spin up in docker to test against.
+          # Must be available at `geerlingguy/docker-${distribution}-ansible:latest`
+          - distribution: ubuntu2204 
+          - distribution: ubuntu2404
+          - distribution: ubuntu2604
 
     steps:
       - name: Check out the codebase.
@@ -48,6 +51,6 @@ jobs:
       - name: Run Molecule tests.
         run: molecule test --all
         env:
-          PY_COLORS: '1'
-          ANSIBLE_FORCE_COLOR: '1'
-          MOLECULE_DISTRO: ${{ matrix.distro }}
+          PY_COLORS: "1"
+          ANSIBLE_FORCE_COLOR: "1"
+          MOLECULE_DISTRO: ${{ matrix.distribution }}
