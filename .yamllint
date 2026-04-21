@@ -15,7 +15,11 @@ rules:
   commas:
     max-spaces-after: -1
     level: error
-  comments: disable
+  # Must be set to be compatible with `ansible-lint`.
+  # See https://docs.ansible.com/projects/lint/rules/yaml/#yamllint-configuration
+  comments:
+    min-spaces-from-content: 1
+    level: warning
   comments-indentation: disable
   document-start:
     present: true
@@ -32,6 +36,10 @@ rules:
     type: unix
   trailing-spaces: disable
   truthy: disable
+  # Must be set to be compatible with `ansible-lint`.
+  octal-values:
+    forbid-implicit-octal: true
+    forbid-explicit-octal: true
 
 ignore: |
   venv/
