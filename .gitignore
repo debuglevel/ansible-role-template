@@ -1,8 +1,11 @@
 venv
+.venv
 *.log
 __pycache__
 *.retry
 ansible.log
+ansible.log.ansi
+.ansible
 
 # Created by https://www.toptal.com/developers/gitignore/api/linux,code,vagrant
 # Edit at https://www.toptal.com/developers/gitignore?templates=linux,code,vagrant
